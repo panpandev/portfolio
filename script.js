@@ -34,6 +34,16 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         document.querySelector(this.getAttribute('href')).scrollIntoView({
             behavior: 'smooth'
         });
+
+        // Close mobile nav after clicking a link
+        // Fecha a navegação mobile após clicar em um link
+        if (nav.classList.contains('nav-active')) {
+            nav.classList.remove('nav-active');
+            burger.classList.remove('toggle');
+            navLinks.forEach(link => {
+                link.style.animation = ''; // Reset animation
+            });
+        }
     });
 });
 
